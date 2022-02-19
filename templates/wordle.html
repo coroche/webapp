@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% set active_page = "countdown" %}
+
+{% block title %}Wordle Helper{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block page_content %}
+<h1 class="cap">Wordle Helper</h1>
+
+<div id="wordle">
+
+    <form id="form" action="/wordle_guess" method="post">
+        <h4 class="formTitle" >Guesses</h4>
+        <guess class="formRow">
+            <letter class="letter">
+                <input type="text" class="tile" id=letter11 name=letter11 maxlength=1 value='{{letter11}}' tabindex=1 datastate="tbd" required />
+                <input type="color" class="colourPicker" id=colour11 name=colour11 value='{{colour11}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter12 name=letter12 maxlength=1 value='{{letter12}}' tabindex=2 datastate="tbd" required />
+                <input type="color" class="colourPicker" id=colour12 name=colour12 value='{{colour12}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter13 name=letter13 maxlength=1 value='{{letter13}}' tabindex=3 datastate="tbd" required />
+                <input type="color" class="colourPicker" id=colour13 name=colour13 value='{{colour13}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter14 name=letter14 maxlength=1 value='{{letter14}}' tabindex=4 datastate="tbd" required />
+                <input type="color" class="colourPicker" id=colour14 name=colour14 value='{{colour14}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter15 name=letter15 maxlength=1 value='{{letter15}}' tabindex=5 datastate="tbd" required />
+                <input type="color" class="colourPicker" id=colour15 name=colour15 value='{{colour15}}' tabindex=-1 list="presets"></label>
+            </letter>
+        </guess>
+
+        <guess class="formRow">
+            <letter class="letter">
+                <input type="text" class="tile" id=letter21 name=letter21 maxlength=1 value='{{letter21}}' tabindex=6 datastate="tbd" />
+                <input type="color" class="colourPicker" id=colour21 name=colour21 value='{{colour21}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter22 name=letter22 maxlength=1 value='{{letter22}}' tabindex=7 datastate="tbd" />
+                <input type="color" class="colourPicker" id=colour22 name=colour22 value='{{colour22}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter23 name=letter23 maxlength=1 value='{{letter23}}' tabindex=8 datastate="tbd" />
+                <input type="color" class="colourPicker" id=colour23 name=colour23 value='{{colour23}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter24 name=letter24 maxlength=1 value='{{letter24}}' tabindex=9 datastate="tbd" />
+                <input type="color" class="colourPicker" id=colour24 name=colour24 value='{{colour24}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter25 name=letter25 maxlength=1 value='{{letter25}}' tabindex=1 datastate="tbd"0 />
+                <input type="color" class="colourPicker" id=colour25 name=colour25 value='{{colour25}}' tabindex=-1 list="presets"></label>
+            </letter>
+        </guess>
+
+        <guess class="formRow">
+            <letter class="letter">
+                <input type="text" class="tile" id=letter31 name=letter31 maxlength=1 value='{{letter31}}' tabindex=1 datastate="tbd"1 />
+                <input type="color" class="colourPicker" id=colour31 name=colour31 value='{{colour31}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter32 name=letter32 maxlength=1 value='{{letter32}}' tabindex=1 datastate="tbd"2 />
+                <input type="color" class="colourPicker" id=colour32 name=colour32 value='{{colour32}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter33 name=letter33 maxlength=1 value='{{letter33}}' tabindex=1 datastate="tbd"3 />
+                <input type="color" class="colourPicker" id=colour33 name=colour33 value='{{colour33}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter34 name=letter34 maxlength=1 value='{{letter34}}' tabindex=1 datastate="tbd"4 />
+                <input type="color" class="colourPicker" id=colour34 name=colour34 value='{{colour34}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter35 name=letter35 maxlength=1 value='{{letter35}}' tabindex=1 datastate="tbd"5 />
+                <input type="color" class="colourPicker" id=colour35 name=colour35 value='{{colour35}}' tabindex=-1 list="presets"></label>
+            </letter>
+        </guess>
+
+        <guess class="formRow">
+            <letter class="letter">
+                <input type="text" class="tile" id=letter41 name=letter41 maxlength=1 value='{{letter41}}' tabindex=1 datastate="tbd"6 />
+                <input type="color" class="colourPicker" id=colour41 name=colour41 value='{{colour41}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter42 name=letter42 maxlength=1 value='{{letter42}}' tabindex=1 datastate="tbd"7 />
+                <input type="color" class="colourPicker" id=colour42 name=colour42 value='{{colour42}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter43 name=letter43 maxlength=1 value='{{letter43}}' tabindex=1 datastate="tbd"8 />
+                <input type="color" class="colourPicker" id=colour43 name=colour43 value='{{colour43}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter44 name=letter44 maxlength=1 value='{{letter44}}' tabindex=1 datastate="tbd"9 />
+                <input type="color" class="colourPicker" id=colour44 name=colour44 value='{{colour44}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter45 name=letter45 maxlength=1 value='{{letter45}}' tabindex=2 datastate="tbd"0 />
+                <input type="color" class="colourPicker" id=colour45 name=colour45 value='{{colour45}}' tabindex=-1 list="presets"></label>
+            </letter>
+        </guess>
+
+        <guess class="formRow">
+            <letter class="letter">
+                <input type="text" class="tile" id=letter51 name=letter51 maxlength=1 value='{{letter51}}' tabindex=2 datastate="tbd"1 />
+                <input type="color" class="colourPicker" id=colour51 name=colour51 value='{{colour51}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter52 name=letter52 maxlength=1 value='{{letter52}}' tabindex=2 datastate="tbd"2 />
+                <input type="color" class="colourPicker" id=colour52 name=colour52 value='{{colour52}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter53 name=letter53 maxlength=1 value='{{letter53}}' tabindex=2 datastate="tbd"3 />
+                <input type="color" class="colourPicker" id=colour53 name=colour53 value='{{colour53}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter54 name=letter54 maxlength=1 value='{{letter54}}' tabindex=2 datastate="tbd"4 />
+                <input type="color" class="colourPicker" id=colour54 name=colour54 value='{{colour54}}' tabindex=-1 list="presets"></label>
+            </letter>
+            <letter class="letter">
+                <input type="text" class="tile" id=letter55 name=letter55 maxlength=1 value='{{letter55}}' tabindex=2 datastate="tbd"5 />
+                <input type="color" class="colourPicker" id=colour55 name=colour55 value='{{colour55}}' tabindex=-1 list="presets"></label>
+            </letter>
+        </guess>
+
+        <submit class="formRow">
+            <div class="button">
+                <input type="submit" value="Show Possible Solutions" id="submit"/>
+            </div>
+            <div class="button">
+                <input type="button" value="Clear" id="clear" onclick="clearAll()"/>
+            </div>
+        </submit>
+
+        
+        <datalist id="presets">
+        <option value="#6aaa64">Right letter, right position</option>
+        <option value="#c9b458">Right letter, wrong position</option>
+        <option value="#ffffff">White</option>
+        </datalist>
+
+    </form>
+
+    <words style="padding: 20px;">
+        <h4 class="formTitle" >Words</h4>
+        <textarea id="wordList" name="wordList" cols="8" rows="20">{{wordList}}</textarea>
+    </words>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script>
+    const tiles = Array.from(document.querySelectorAll('.tile'))
+    const colourPickers = Array.from(document.querySelectorAll('.colourPicker'))
+
+    var dict = {
+        "#6aaa64": "correct",
+        "#c9b458": "present",
+        "#ffffff": "tbd"
+    };
+
+    colourPickers.forEach(function (picker, i) {
+        picker.addEventListener("input", function(event) {
+            tiles[i].attributes.datastate.value = dict[event.target.value];
+            
+            $('.tile').removeAttr('style');
+            $('#form').hide().show(0);
+
+        }, false);
+    })
+
+    tiles.forEach(function (tile, i) {
+        tile.addEventListener("input", function(event) {
+            if (i < tiles.length - 1 && event.inputType != 'deleteContentBackward') {
+                tiles[i+1].select()
+            }
+        }, false);
+
+        tile.addEventListener("keyup", function(event) {
+            if (event.key == 'Backspace') {
+                if (i > 0) {
+                    tiles[i-1].select()
+                } 
+            }
+            
+        }, false);        
+    })
+
+    function clearAll() {
+        colourPickers.forEach(item => {
+            item.value = "#ffffff"
+        })
+
+        tiles.forEach(item => {
+            item.value = ""
+            item.attributes.datastate.value = 'tbd';
+        })
+
+        $('.tile').removeAttr('style');
+        $('#form').hide().show(0);
+        tiles[0].focus();
+    }
+
+    function onLoad() {
+        colourPickers.forEach(function (item, i) {
+            tiles[i].attributes.datastate.value = dict[item.value];
+        })
+        $('.tile').removeAttr('style');
+        $('#form').hide().show(0);
+        tiles[0].focus()
+    }
+    window.onload = onLoad;
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div id="dismiss">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+        <h3>CormHub</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <li class="{{'active' if active_page == 'home' }}">
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Projects</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="/countdown">Countdown Solver</a>
+                </li>
+                <li>
+                    <a href="/wordle">Wordle Helper</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/page/contact">Contact</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% set active_page = "countdown" %}
+
+{% block title %}Countdown{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block page_content %}
+<h1 class="cap">Let's Play Countdown</h1>
+
+<form id="form" action="/countdown_solved" method="post">
+    <target class="formRow">
+        <input id="target" type="number" name="target" value={{target}} required />
+    </target>
+ 
+    <numbers class="formRow">
+        <number class="number">
+            <input class="num" type="number" name="number1" value={{number1}} required />
+        </number>
+        <number class="number">
+            <input class="num" type="number" name="number2" value={{number2}} required />
+        </number>
+        <number class="number">
+            <input class="num" type="number" name="number3" value={{number3}} required />
+        </number>
+        <number class="number">
+            <input class="num" type="number" name="number4" value={{number4}} required />
+        </number>
+        <number class="number">
+            <input class="num" type="number" name="number5" value={{number5}} required />
+        </number>
+        <number class="number">
+            <input class="num" type="number" name="number6" value={{number6}} required />
+        </number>
+    </numbers>
+
+    <submit class="formRow">
+        <input type="submit" value="Solve" id="submit"/>
+    </submit>
+
+    <output class="formRow" style="padding: 50px;">
+        <textarea id="solution" name="solution" cols="20" rows="5">{{solution}}</textarea>
+    </output>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+{% endblock %}
