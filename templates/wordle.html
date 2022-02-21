@@ -132,7 +132,7 @@
 
         <submit class="formRow">
             <div class="button">
-                <input type="submit" value="Show Possible Solutions" id="submit"/>
+                <input type="button" value="Show Possible Solutions" id="submit"  onclick="solve()"/>
             </div>
             <div class="button">
                 <input type="button" value="Clear" id="clear" onclick="clearAll()"/>
@@ -159,15 +159,19 @@
 
 {% block scripts %}
 {{ super() }}
-
+<script src="/static/wordleLogic.js"></script>
 <script>
+    
     const tiles = Array.from(document.querySelectorAll('.tile'))
     const colourPickers = Array.from(document.querySelectorAll('.colourPicker'))
 
     var dict = {
         "#6aaa64": "correct",
         "#c9b458": "present",
-        "#ffffff": "tbd"
+        "#ffffff": "tbd",
+        "correct": "#6aaa64",
+        "present": "#c9b458",
+        "tbd"    : "#ffffff"
     };
 
     colourPickers.forEach(function (picker, i) {
@@ -220,6 +224,49 @@
         $('#form').hide().show(0);
         tiles[0].focus()
     }
+
+    function solve(tiles, colourPickers){
+        const tiles_ret = Array.from(document.querySelectorAll('.tile'))
+        const colourPickers_ret = Array.from(document.querySelectorAll('.colourPicker'))
+        
+        n = 0;
+        while (tiles_ret[n].value.trim() != '') {
+            n++
+        }
+        N = Math.floor(n/5); //Number of complete words
+        
+        const greens = [];
+        const oranges = [];
+        const elim = [];
+        const guesses = [];
+    
+        for (let i = 0; i < N; i++) {
+            greens.push(['_', '_', '_', '_', '_']);
+            oranges.push([])
+            elim.push([])
+            guesses.push('')
+        }
+        
+        for (let i = 0; i < N*5; i++) {
+            g = Math.floor(i/5);
+            if (colourPickers_ret[i].value == dict['correct']) {
+                greens[g][i%5] = tiles_ret[i].value
+            } 
+            else if (colourPickers_ret[i].value == dict['present']) {
+                oranges[g].push([tiles_ret[i].value, i%5])
+            } 
+            else if (tiles_ret[i].value !== "" && colourPickers_ret[i].value == dict['tbd']) {
+                elim[g].push(tiles_ret[i].value)
+            }
+            guesses[g] = guesses[g] +  tiles_ret[i].value
+            
+        }
+
+        applyGuesses(greens, oranges, elim, guesses, N)
+        document.getElementById('wordList').value = wordList.join('\r\n')
+        
+    }
+
     window.onload = onLoad;
 
 </script>
